@@ -2,10 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+import 'package:news_blog1/screens/comments.dart';
 import 'package:news_blog1/widgets/footer.dart';
 import 'package:news_blog1/widgets/form_button.dart';
 
@@ -65,6 +62,30 @@ class _NewsDetailsState extends State<NewsDetails> {
                         setState(() {
                           _checked = !_checked;
                         });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            showCloseIcon: true,
+                            closeIconColor: Colors.black,
+                            width: 300.0,
+                            // margin: const EdgeInsets.symmetric(horizontal: 30.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(40.0),
+                            ),
+                            elevation: 20.0,
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: const Color(0xFFE1E1E0),
+                            content:  Center(
+                              child: Text( _checked ?
+                                'Added to Bookmark' : 'Removed from Bookmark',
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18.0,
+                                  // fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
                       },
                       child: Icon(
                         _checked ? Icons.bookmark : Icons.bookmark_border,
@@ -86,30 +107,38 @@ class _NewsDetailsState extends State<NewsDetails> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 40.0,
-                          backgroundImage:
-                              AssetImage('assets/images/yaqoub.jpg'),
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'by Yaqoub Hassan',
-                              style: kUsernameTextStyle,
+                    const Expanded(
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 20.0,
+                            backgroundImage:
+                                AssetImage('assets/images/yaqoub.jpg'),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 2.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'by Yaqoub Hassan',
+                                    style: kUsernameTextStyle,
+                                    softWrap: true,
+                                  ),
+                                  Text(
+                                    '08 Apr 2024',
+                                    style: kLittleTextStyle,
+                                  ),
+                                ],
+                              ),
                             ),
-                            Text(
-                              '08 Apr 2024',
-                              style: kLittleTestStyle,
-                            ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                     ElevatedButton(
                       onPressed: () {},
@@ -120,12 +149,24 @@ class _NewsDetailsState extends State<NewsDetails> {
                           padding:
                               MaterialStateProperty.all<EdgeInsetsGeometry>(
                                   const EdgeInsets.symmetric(
-                                      horizontal: 25, vertical: 10)),
+                                      horizontal: 10, vertical: 10)),
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.black)),
-                      child: const Text(
-                        'Follow',
-                        style: TextStyle(color: Colors.white),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.add,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            'Follow',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -136,30 +177,33 @@ class _NewsDetailsState extends State<NewsDetails> {
                 const Text(
                   textAlign: TextAlign.justify,
                   kNewsDetailsText,
-                  style: TextStyle(
-                    fontSize: 16.0
-                  ),
+                  style: TextStyle(fontSize: 16.0),
                 ),
-                const SizedBox(height: 15.0,),
+                const SizedBox(
+                  height: 15.0,
+                ),
                 const Text(
                   textAlign: TextAlign.justify,
                   kNewsDetailsText,
-                  style: TextStyle(
-                      fontSize: 16.0
-                  ),
+                  style: TextStyle(fontSize: 16.0),
                 ),
-                const SizedBox(height: 15.0,),
+                const SizedBox(
+                  height: 15.0,
+                ),
                 const Text(
                   textAlign: TextAlign.justify,
                   kNewsDetailsText,
-                  style: TextStyle(
-                      fontSize: 16.0
-                  ),
+                  style: TextStyle(fontSize: 16.0),
                 ),
                 // const SizedBox(height: 30.0,),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 50.0),
-                  child: FormButton(buttonText: 'Comment'),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 50.0),
+                  child: FormButton(
+                    buttonText: 'Comment',
+                    onPressed: () {
+                      Navigator.pushNamed(context, CommentsScreen.id);
+                    },
+                  ),
                 )
               ],
             ),

@@ -36,42 +36,42 @@ class _LatestNewsState extends State<LatestNews> {
                   content:
                   'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
                   date: '08 Apr 2024',
-                  imagePath: 'assets/images/sports_car.jpg',
+                  imagePath: 'assets/images/sports_car.jpg', showDivider: true,
                 ),
                 CustomCard(
                   title: 'Technology',
                   content:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                   date: '07 Apr 2024',
-                  imagePath: 'assets/images/tech1.jpg',
+                  imagePath: 'assets/images/tech1.jpg', showDivider: true,
                 ),
                 CustomCard(
                   title: 'Fashion',
                   content:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                   date: '22 Jun 2023',
-                  imagePath: 'assets/images/fashion.jpg',
+                  imagePath: 'assets/images/fashion.jpg', showDivider: true,
                 ),
                 CustomCard(
                   title: 'Science',
                   content:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                   date: '12 Aug 2017',
-                  imagePath: 'assets/images/science.jpg',
+                  imagePath: 'assets/images/science.jpg', showDivider: true,
                 ),
                 CustomCard(
                   title: 'Technology',
                   content:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                   date: '01 Apr 2012',
-                  imagePath: 'assets/images/tech.jpg',
+                  imagePath: 'assets/images/tech.jpg', showDivider: true,
                 ),
                 CustomCard(
                   title: 'Sports',
                   content:
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                   date: '08 Apr 2024',
-                  imagePath: 'assets/images/ronaldo.jpg',
+                  imagePath: 'assets/images/ronaldo.jpg', showDivider: true,
                 ),
               ],
             ),

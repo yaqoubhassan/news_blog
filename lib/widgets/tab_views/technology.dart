@@ -13,26 +13,28 @@ class _TechnologyTabViewState extends State<TechnologyTabView> {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 15.0,),
-          CustomCard(
-            title: 'Technology',
-            content:
-            'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
-            date: '08 Apr 2024',
-            imagePath: 'assets/images/tech1.jpg',
-          ),
-          CustomCard(
-            title: 'Technology',
-            content:
-            'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
-            date: '08 Apr 2024',
-            imagePath: 'assets/images/tech.jpg',
-          ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CustomCard(
+              title: 'Technology',
+              content:
+              'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
+              date: '08 Apr 2024',
+              imagePath: 'assets/images/tech1.jpg', showDivider: true,
+            ),
+            CustomCard(
+              title: 'Technology',
+              content:
+              'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
+              date: '08 Apr 2024',
+              imagePath: 'assets/images/tech.jpg', showDivider: false,
+            ),
 
-        ],
+          ],
+        ),
       ),
     );
   }

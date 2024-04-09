@@ -13,25 +13,27 @@ class _FashionTabViewState extends State<FashionTabView> {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 15.0,),
-          CustomCard(
-            title: 'Fashion',
-            content:
-            'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
-            date: '08 Apr 2024',
-            imagePath: 'assets/images/fashion.jpg',
-          ),
-          CustomCard(
-            title: 'Fashion',
-            content:
-            'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
-            date: '08 Apr 2024',
-            imagePath: 'assets/images/fashion1.jpg',
-          )
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CustomCard(
+              title: 'Fashion',
+              content:
+              'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
+              date: '08 Apr 2024',
+              imagePath: 'assets/images/fashion.jpg', showDivider: true,
+            ),
+            CustomCard(
+              title: 'Fashion',
+              content:
+              'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
+              date: '08 Apr 2024',
+              imagePath: 'assets/images/fashion1.jpg', showDivider: false,
+            )
+          ],
+        ),
       ),
     );
   }

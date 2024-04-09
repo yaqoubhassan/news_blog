@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog1/constants.dart';
+import 'package:news_blog1/widgets/footer.dart';
 import 'package:news_blog1/widgets/form_button.dart';
 import 'package:news_blog1/widgets/input_field.dart';
 
@@ -26,6 +27,7 @@ class ForgotPassword extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const Footer(),
     );
   }
 }

@@ -14,7 +14,7 @@ const kUsernameTextStyle = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
-const kLittleTestStyle = TextStyle(
+const kLittleTextStyle = TextStyle(
   color: Colors.black45,
   fontSize: 14.0,
 );

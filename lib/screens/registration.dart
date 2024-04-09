@@ -6,6 +6,8 @@ import 'package:news_blog1/widgets/form_button.dart';
 import 'package:news_blog1/widgets/input_field.dart';
 import 'package:news_blog1/widgets/phone_number_field.dart';
 
+import '../widgets/footer.dart';
+
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
   const RegistrationScreen({super.key});
@@ -111,6 +113,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: const Footer(),
     );
   }
 }

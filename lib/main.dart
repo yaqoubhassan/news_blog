@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_blog1/screens/comments.dart';
 import 'package:news_blog1/screens/forgot_password.dart';
 import 'package:news_blog1/screens/home.dart';
 import 'package:news_blog1/screens/latest_news.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         ForgotPassword.id: (context) => const ForgotPassword(),
         Home.id: (context) => const Home(),
         LatestNews.id: (context) => const LatestNews(),
-        NewsDetails.id: (context) => const NewsDetails()
+        NewsDetails.id: (context) => const NewsDetails(),
+        CommentsScreen.id: (context) => const CommentsScreen()
       },
     );
   }

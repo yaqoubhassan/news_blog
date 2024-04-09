@@ -39,7 +39,7 @@ class HomeDrawer extends StatelessWidget {
                           ),
                           Text(
                             'View Profile',
-                            style: kLittleTestStyle,
+                            style: kLittleTextStyle,
                           ),
                         ],
                       )
