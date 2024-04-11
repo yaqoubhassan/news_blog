@@ -7,9 +7,11 @@ import 'package:news_blog1/widgets/tab_views/technology.dart';
 
 
 class CustomTabView extends StatefulWidget {
-  const CustomTabView({super.key, this.showCarousel = true});
+  const CustomTabView({super.key, this.showCarousel = true, this
+      .isAudioArticle = false});
 
   final bool showCarousel;
+  final bool isAudioArticle;
 
   @override
   State<CustomTabView> createState() => _CustomTabViewState();
@@ -19,14 +21,17 @@ class _CustomTabViewState extends State<CustomTabView> {
 
   @override
   Widget build(BuildContext context) {
-    return TabBarView(
-      children: <Widget>[
-        AllNews(showCarousel: widget.showCarousel,),
-        const TechnologyTabView(),
-        const FashionTabView(),
-        const SportsTabView(),
-        const ScienceTabView()
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 0.0),
+      child: TabBarView(
+        children: <Widget>[
+          AllNews(showCarousel: widget.showCarousel, isAudioArticle: widget.isAudioArticle,),
+          TechnologyTabView(isAudioArticle: widget.isAudioArticle),
+          FashionTabView(isAudioArticle: widget.isAudioArticle),
+          SportsTabView(isAudioArticle: widget.isAudioArticle),
+          ScienceTabView(isAudioArticle: widget.isAudioArticle)
+        ],
+      ),
     );
   }
 }

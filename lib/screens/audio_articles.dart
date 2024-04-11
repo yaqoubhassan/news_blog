@@ -50,6 +50,7 @@ class _AudioArticlesScreenState extends State<AudioArticlesScreen>
                       images: images,
                       activeIndicatorBeginColor: Colors.white,
                       activeIndicatorEndColor: Colors.purple,
+                      isAudioArticle: true,
                     ),
                   )),
               bottom: const CustomTabBar(
@@ -59,16 +60,11 @@ class _AudioArticlesScreenState extends State<AudioArticlesScreen>
             SliverList(
               delegate: SliverChildListDelegate([
                   SizedBox(
-                  // height: 700,
-                  height: MediaQuery.of(context).size.height - kToolbarHeight - kBottomNavigationBarHeight, // Adjust the height based on your layout
-                  child: const CustomTabView(showCarousel: false,),
-                  // child: TabBarView(children: [
-                  //   AllNews(showCarousel: false),
-                  //   TechnologyTabView(),
-                  //   FashionTabView(),
-                  //   SportsTabView(),
-                  //   ScienceTabView()
-                  // ]),
+                  height: MediaQuery.of(context).size.height - kToolbarHeight
+                      - kBottomNavigationBarHeight + 300, // Adjust the height
+                    // based on your layout
+                  child: const CustomTabView(showCarousel: false,
+                    isAudioArticle: true,),
                 ),
               ]),
             ),

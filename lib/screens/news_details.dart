@@ -9,7 +9,7 @@ import '../constants.dart';
 bool _checked = false;
 
 class NewsDetails extends StatefulWidget {
-  static const String id = 'new_details';
+  static const String id = 'news_details';
   const NewsDetails({super.key});
 
   @override

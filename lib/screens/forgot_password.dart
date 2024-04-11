@@ -20,9 +20,18 @@ class ForgotPassword extends StatelessWidget {
           padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 150.0),
           child: Column(
             children: [
-              InputField(obscure: false, placeholder: 'Enter Email Address',),
-              SizedBox(height: 30.0,),
+              InputField(
+                obscure: false,
+                placeholder: 'Enter Email Address',
+              ),
+              SizedBox(
+                height: 30.0,
+              ),
               FormButton(buttonText: 'Send Password'),
+              SizedBox(
+                height: 20.0,
+              ),
+
             ],
           ),
         ),

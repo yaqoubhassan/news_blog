@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 import '../screens/audio_articles.dart';
+import '../screens/home.dart';
 import 'drawer_menu_item.dart';
 
 class HomeDrawer extends StatelessWidget {
@@ -53,7 +54,7 @@ class HomeDrawer extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DrawerMenuItem(menuItem: 'Home'),
+                    DrawerMenuItem(menuItem: 'Home', routeName: Home.id,),
                     Divider(
                       thickness: 0.5,
                     ),

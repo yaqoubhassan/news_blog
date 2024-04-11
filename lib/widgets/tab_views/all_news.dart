@@ -6,9 +6,11 @@ import '../../constants.dart';
 import '../custom_card.dart';
 
 class AllNews extends StatefulWidget {
-  const AllNews({super.key, this.showCarousel = true});
+  const AllNews({super.key, this.showCarousel = true, this.isAudioArticle =
+      false});
 
   final bool showCarousel;
+  final bool isAudioArticle;
 
   @override
   State<AllNews> createState() => _AllNewsState();
@@ -35,9 +37,9 @@ class _AllNewsState extends State<AllNews> {
               activeIndicatorBeginColor: kOrangeColor,
               activeIndicatorEndColor: Colors.purple,
             ) : const SizedBox(),
-            const SizedBox(
-                height: 20), // Space between indicator and other widgets
-            Padding(
+            // const SizedBox(
+            //     height: 20), // Space between indicator and other widgets
+            widget.isAudioArticle ? const SizedBox() : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,8 +68,8 @@ class _AllNewsState extends State<AllNews> {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
               child: Column(
                 children: [
                   CustomCard(
@@ -77,6 +79,7 @@ class _AllNewsState extends State<AllNews> {
                     date: '08 Apr 2024',
                     imagePath: 'assets/images/sports_car.jpg',
                     showDivider: true,
+                    isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
                     title: 'Technology',
@@ -85,6 +88,7 @@ class _AllNewsState extends State<AllNews> {
                     date: '07 Apr 2024',
                     imagePath: 'assets/images/tech1.jpg',
                     showDivider: true,
+                    isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
                     title: 'Fashion',
@@ -93,6 +97,7 @@ class _AllNewsState extends State<AllNews> {
                     date: '22 Jun 2023',
                     imagePath: 'assets/images/fashion.jpg',
                     showDivider: true,
+                    isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
                     title: 'Science',
@@ -101,6 +106,7 @@ class _AllNewsState extends State<AllNews> {
                     date: '12 Aug 2017',
                     imagePath: 'assets/images/science.jpg',
                     showDivider: true,
+                    isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
                     title: 'Technology',
@@ -109,6 +115,7 @@ class _AllNewsState extends State<AllNews> {
                     date: '01 Apr 2012',
                     imagePath: 'assets/images/tech.jpg',
                     showDivider: true,
+                    isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
                     title: 'Sports',
@@ -117,6 +124,7 @@ class _AllNewsState extends State<AllNews> {
                     date: '08 Apr 2024',
                     imagePath: 'assets/images/ronaldo.jpg',
                     showDivider: false,
+                    isAudioArticle: widget.isAudioArticle,
                   ),
                 ],
               ),

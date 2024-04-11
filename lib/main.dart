@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog1/screens/audio_articles.dart';
+import 'package:news_blog1/screens/audio_news_details.dart';
 import 'package:news_blog1/screens/comments.dart';
 import 'package:news_blog1/screens/forgot_password.dart';
 import 'package:news_blog1/screens/home.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         LatestNews.id: (context) => const LatestNews(),
         NewsDetails.id: (context) => const NewsDetails(),
         CommentsScreen.id: (context) => const CommentsScreen(),
-        AudioArticlesScreen.id: (context) => const AudioArticlesScreen()
+        AudioArticlesScreen.id: (context) => const AudioArticlesScreen(),
+        AudioNewsDetails.id: (context) => const AudioNewsDetails()
       },
     );
   }
