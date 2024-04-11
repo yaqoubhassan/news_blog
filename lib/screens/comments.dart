@@ -398,7 +398,6 @@ class _CommentsScreenState extends State<CommentsScreen> {
                           horizontal: 20.0),
                       icon: const Icon(Icons.send),
                       onPressed: () {
-                        print('hello');
                       },
                     ),
                   ),

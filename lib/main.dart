@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_blog1/screens/audio_articles.dart';
 import 'package:news_blog1/screens/comments.dart';
 import 'package:news_blog1/screens/forgot_password.dart';
 import 'package:news_blog1/screens/home.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // scrollBehavior: const ScrollBehavior(),
       debugShowCheckedModeBanner: false,
       title: 'News Blog',
       theme: ThemeData(
@@ -32,7 +34,8 @@ class MyApp extends StatelessWidget {
         Home.id: (context) => const Home(),
         LatestNews.id: (context) => const LatestNews(),
         NewsDetails.id: (context) => const NewsDetails(),
-        CommentsScreen.id: (context) => const CommentsScreen()
+        CommentsScreen.id: (context) => const CommentsScreen(),
+        AudioArticlesScreen.id: (context) => const AudioArticlesScreen()
       },
     );
   }

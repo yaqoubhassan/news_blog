@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:news_blog1/screens/registration.dart';
 import 'package:news_blog1/widgets/auth_suggestion.dart';
 import 'package:news_blog1/widgets/footer.dart';

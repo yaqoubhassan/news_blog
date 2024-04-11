@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:news_blog1/constants.dart';
 
 class CustomTabBar extends StatefulWidget implements PreferredSizeWidget{
-  const CustomTabBar({super.key});
+  const CustomTabBar({super.key, required this.color});
 
+  final Color? color;
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
@@ -25,8 +26,8 @@ class _CustomTabBarState extends State<CustomTabBar> {
     return Material(
       shadowColor: kOrangeColor,
       elevation: 4,
-      borderOnForeground: false,
-      color: kOrangeColor,
+      // borderOnForeground: false,
+      color: widget.color,
       child: TabBar(
         padding: const EdgeInsets.only(right: 10.0),
         isScrollable: true,

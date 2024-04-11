@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -27,7 +25,8 @@ class _LatestNewsState extends State<LatestNews> {
       ),
       body: const SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 1.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0
+          ),
           child: SingleChildScrollView(
             child: Column(
               children: [

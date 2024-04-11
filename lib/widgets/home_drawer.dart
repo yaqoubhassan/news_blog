@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import '../screens/audio_articles.dart';
 import 'drawer_menu_item.dart';
 
 class HomeDrawer extends StatelessWidget {
@@ -56,7 +57,7 @@ class HomeDrawer extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                     ),
-                    DrawerMenuItem(menuItem: 'Audio'),
+                    DrawerMenuItem(menuItem: 'Audio', routeName: AudioArticlesScreen.id,),
                     Divider(
                       thickness: 0.5,
                     ),
@@ -76,6 +77,7 @@ class HomeDrawer extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                     ),
+                    DrawerMenuItem(menuItem: 'Logout'),
                   ],
                 )
               ],

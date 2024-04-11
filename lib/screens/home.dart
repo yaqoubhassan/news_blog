@@ -24,18 +24,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Colors.white, size: 35.0),
           backgroundColor: kOrangeColor,
-          title: const Center(
-            child: Text(
-              'News Blog',
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-            ),
+          title: const Text(
+            'News Blog',
+            style:
+                TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
           ),
-          bottom: const CustomTabBar(),
+          centerTitle: true,
+          bottom: const CustomTabBar(color: kOrangeColor,),
         ),
         drawer: const HomeDrawer(),
         body: const SafeArea(
-          child: CustomTabView(),
+          child: CustomTabView(showCarousel: true,),
         ),
         bottomNavigationBar: const Footer(),
 

@@ -1,6 +1,4 @@
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_blog1/screens/comments.dart';
 import 'package:news_blog1/widgets/footer.dart';
@@ -19,6 +17,8 @@ class NewsDetails extends StatefulWidget {
 }
 
 class _NewsDetailsState extends State<NewsDetails> {
+  bool _following = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,18 +141,29 @@ class _NewsDetailsState extends State<NewsDetails> {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          _following = !_following;
+                        });
+                      },
                       style: ButtonStyle(
                           shadowColor:
                               MaterialStateProperty.all<Color>(Colors.black),
                           elevation: MaterialStateProperty.all<double>(4.0),
                           padding:
                               MaterialStateProperty.all<EdgeInsetsGeometry>(
+                                  _following ?
                                   const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 10) : const
+                                  EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 10)),
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black)),
-                      child: const Row(
+                          backgroundColor: _following ?
+                              MaterialStateProperty.all<Color>(const Color(0xFFE1E1E0))
+                              : MaterialStateProperty.all<Color>(Colors.black) ),
+                      child: _following ? const Text(
+                        'Following',
+                        style: TextStyle(color: Colors.black54),
+                      ) : const Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Icon(

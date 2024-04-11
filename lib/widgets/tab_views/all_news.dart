@@ -1,15 +1,14 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_blog1/screens/latest_news.dart';
+import 'package:news_blog1/widgets/custom_carousel.dart';
 
 import '../../constants.dart';
 import '../custom_card.dart';
-import '../custom_indicator.dart';
 
 class AllNews extends StatefulWidget {
-  const AllNews({super.key});
+  const AllNews({super.key, this.showCarousel = true});
+
+  final bool showCarousel;
 
   @override
   State<AllNews> createState() => _AllNewsState();
@@ -24,36 +23,6 @@ class _AllNewsState extends State<AllNews> {
     'assets/images/tech1.jpg'
   ];
 
-  final PageController _controller = PageController(viewportFraction: 0.9);
-
-  int _currentPage = 0;
-  Timer? _timer;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller.addListener(() {});
-
-    _timer = Timer.periodic(const Duration(seconds: 7), (timer) {
-      if (_currentPage < images.length - 1) {
-        _currentPage++;
-      } else {
-        _currentPage = 0;
-      }
-      _controller.animateToPage(
-        _currentPage,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -61,37 +30,11 @@ class _AllNewsState extends State<AllNews> {
         padding: const EdgeInsets.only(top: 20.0),
         child: Column(
           children: [
-            SizedBox(
-              height: 180, // Height of the carousel
-              // width: MediaQuery.of(context).size.width * 0.8,
-              child: PageView.builder(
-                controller: _controller,
-                itemCount: images.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    padding: const EdgeInsets.only(right: 30.0),
-                    // color: Colors.red,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        images[index],
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ),
-                  );
-                },
-                onPageChanged: (int index) {
-                  setState(() {
-                    _currentPage = index;
-                  });
-                },
-              ),
-            ),
-            const SizedBox(height: 10), // Space between carousel and indicator
-            CustomIndicator(
-              imagesLength: images.length,
-              controller: _controller,
-            ),
+            widget.showCarousel ? CustomCarousel(
+              images: images,
+              activeIndicatorBeginColor: kOrangeColor,
+              activeIndicatorEndColor: Colors.purple,
+            ) : const SizedBox(),
             const SizedBox(
                 height: 20), // Space between indicator and other widgets
             Padding(
@@ -130,44 +73,50 @@ class _AllNewsState extends State<AllNews> {
                   CustomCard(
                     title: 'Sports',
                     content:
-                    'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
+                        'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
                     date: '08 Apr 2024',
-                    imagePath: 'assets/images/sports_car.jpg', showDivider: true,
+                    imagePath: 'assets/images/sports_car.jpg',
+                    showDivider: true,
                   ),
                   CustomCard(
                     title: 'Technology',
                     content:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
+                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '07 Apr 2024',
-                    imagePath: 'assets/images/tech1.jpg', showDivider: true,
+                    imagePath: 'assets/images/tech1.jpg',
+                    showDivider: true,
                   ),
                   CustomCard(
                     title: 'Fashion',
                     content:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
+                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '22 Jun 2023',
-                    imagePath: 'assets/images/fashion.jpg', showDivider: true,
+                    imagePath: 'assets/images/fashion.jpg',
+                    showDivider: true,
                   ),
                   CustomCard(
                     title: 'Science',
                     content:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
+                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '12 Aug 2017',
-                    imagePath: 'assets/images/science.jpg', showDivider: true,
+                    imagePath: 'assets/images/science.jpg',
+                    showDivider: true,
                   ),
                   CustomCard(
                     title: 'Technology',
                     content:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
+                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '01 Apr 2012',
-                    imagePath: 'assets/images/tech.jpg', showDivider: true,
+                    imagePath: 'assets/images/tech.jpg',
+                    showDivider: true,
                   ),
                   CustomCard(
                     title: 'Sports',
                     content:
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
+                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '08 Apr 2024',
-                    imagePath: 'assets/images/ronaldo.jpg', showDivider: false,
+                    imagePath: 'assets/images/ronaldo.jpg',
+                    showDivider: false,
                   ),
                 ],
               ),

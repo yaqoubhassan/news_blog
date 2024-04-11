@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
 
 class CustomIndicator extends StatefulWidget {
-  const CustomIndicator({super.key, required this.imagesLength, required this.controller});
+  const CustomIndicator({super.key, required this.imagesLength, required this
+      .controller, required this.activeIndicatorBeginColor, required
+  this.activeIndicatorEndColor});
 
   final int imagesLength;
   final PageController controller;
+  final Color activeIndicatorBeginColor;
+  final Color activeIndicatorEndColor;
 
   @override
   State<CustomIndicator> createState() => _CustomIndicatorState();
@@ -30,6 +33,12 @@ class _CustomIndicatorState extends State<CustomIndicator> with SingleTickerProv
     );}
 
   @override
+  void dispose() {
+    _animationController.isDismissed;
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -44,8 +53,8 @@ class _CustomIndicatorState extends State<CustomIndicator> with SingleTickerProv
             shape: BoxShape.circle,
             color: (idx + 1 == _currentPage)
                 ? ColorTween(
-              begin: kOrangeColor,
-              end: Colors.purple,
+              begin: widget.activeIndicatorBeginColor,
+              end: widget.activeIndicatorEndColor,
             ).animate(CurvedAnimation(
               parent: _animationController,
               curve: Curves.ease,
