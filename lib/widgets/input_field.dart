@@ -3,12 +3,17 @@ import 'package:news_blog1/constants.dart';
 
 
 class InputField extends StatefulWidget {
-  const InputField({super.key, this.placeholder, required this.obscure, this.textFieldNode, this.nextFieldNode});
+  const InputField({super.key, this.placeholder, this.obscure = false, this
+      .textFieldNode, this.nextFieldNode, this.maxLines = 1, this
+      .textCapitalization = false});
 
   final String? placeholder;
   final bool obscure;
   final FocusNode? textFieldNode;
   final FocusNode? nextFieldNode;
+  final int maxLines;
+  final bool textCapitalization;
+
   @override
   State<InputField> createState() => _InputFieldState();
 }
@@ -37,6 +42,10 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textCapitalization: widget.textCapitalization ? TextCapitalization
+          .sentences :
+      TextCapitalization.none,
+      maxLines: widget.maxLines,
       focusNode: widget.textFieldNode,
       style: const TextStyle(fontSize: 18.0),
       obscureText: _isObscured,

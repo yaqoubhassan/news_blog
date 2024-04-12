@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_blog1/screens/bookmarked.dart';
+import 'package:news_blog1/screens/create_article_screen.dart';
 
 import '../constants.dart';
 import '../screens/audio_articles.dart';
@@ -62,15 +64,13 @@ class HomeDrawer extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                     ),
-                    DrawerMenuItem(menuItem: 'Create New Article'),
+                    DrawerMenuItem(menuItem: 'Create New Article', routeName:
+                    CreateArticleScreen.id,),
                     Divider(
                       thickness: 0.5,
                     ),
-                    DrawerMenuItem(menuItem: 'Bookmark'),
-                    Divider(
-                      thickness: 0.5,
-                    ),
-                    DrawerMenuItem(menuItem: 'Membership'),
+                    DrawerMenuItem(menuItem: 'Bookmark', routeName:
+                    BookMarked.id,),
                     Divider(
                       thickness: 0.5,
                     ),
@@ -78,6 +78,7 @@ class HomeDrawer extends StatelessWidget {
                     Divider(
                       thickness: 0.5,
                     ),
+                    SizedBox(height: 200,),
                     DrawerMenuItem(menuItem: 'Logout'),
                   ],
                 )

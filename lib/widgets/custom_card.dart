@@ -156,12 +156,9 @@ class _CustomCardState extends State<CustomCard> {
                 ),
         ),
         widget.showDivider
-            ? const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Divider(
-                  thickness: 0.5,
-                ),
-              )
+            ? const Divider(
+              thickness: 0.5,
+            )
             : const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
               ),

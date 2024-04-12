@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog1/screens/audio_articles.dart';
 import 'package:news_blog1/screens/audio_news_details.dart';
+import 'package:news_blog1/screens/bookmarked.dart';
 import 'package:news_blog1/screens/comments.dart';
+import 'package:news_blog1/screens/create_article_screen.dart';
 import 'package:news_blog1/screens/forgot_password.dart';
 import 'package:news_blog1/screens/home.dart';
 import 'package:news_blog1/screens/latest_news.dart';
@@ -37,7 +39,9 @@ class MyApp extends StatelessWidget {
         NewsDetails.id: (context) => const NewsDetails(),
         CommentsScreen.id: (context) => const CommentsScreen(),
         AudioArticlesScreen.id: (context) => const AudioArticlesScreen(),
-        AudioNewsDetails.id: (context) => const AudioNewsDetails()
+        AudioNewsDetails.id: (context) => const AudioNewsDetails(),
+        CreateArticleScreen.id: (context) => const CreateArticleScreen(),
+        BookMarked.id: (context) => const BookMarked()
       },
     );
   }
