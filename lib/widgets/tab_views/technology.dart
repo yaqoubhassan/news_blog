@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom_card.dart';
+import '../cards/custom_card.dart';
 
 class TechnologyTabView extends StatefulWidget {
   const TechnologyTabView({super.key, this.isAudioArticle =
@@ -23,16 +23,16 @@ class _TechnologyTabViewState extends State<TechnologyTabView> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CustomCard(
-              title: 'Technology',
-              content:
+              category: 'Technology',
+              title:
               'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
               date: '08 Apr 2024',
               imagePath: 'assets/images/tech1.jpg', showDivider: true,
               isAudioArticle: widget.isAudioArticle,
             ),
             CustomCard(
-              title: 'Technology',
-              content:
+              category: 'Technology',
+              title:
               'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
               date: '08 Apr 2024',
               imagePath: 'assets/images/tech.jpg', showDivider: false,

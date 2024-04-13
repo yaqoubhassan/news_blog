@@ -34,7 +34,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         ),
         drawer: const HomeDrawer(),
         body: const SafeArea(
-          child: CustomTabView(showCarousel: true,),
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 20.0),
+            child: CustomTabView(showCarousel: true,),
+          ),
         ),
         bottomNavigationBar: const Footer(),
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom_card.dart';
+import '../cards/custom_card.dart';
 
 class ScienceTabView extends StatefulWidget {
   const ScienceTabView({super.key, this.isAudioArticle = false});
@@ -21,16 +21,16 @@ class _ScienceTabViewState extends State<ScienceTabView> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CustomCard(
-              title: 'Science',
-              content:
+              category: 'Science',
+              title:
               'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
               date: '08 Apr 2024',
               imagePath: 'assets/images/science.jpg', showDivider: true,
               isAudioArticle: widget.isAudioArticle,
             ),
             CustomCard(
-              title: 'Science',
-              content:
+              category: 'Science',
+              title:
               'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
               date: '08 Apr 2024',
               imagePath: 'assets/images/science1.jpg', showDivider: false,

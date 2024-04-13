@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_blog1/constants.dart';
 import 'package:news_blog1/widgets/footer.dart';
 
-import '../widgets/custom_card.dart';
+import '../widgets/cards/custom_card.dart';
 
 
 
@@ -42,8 +42,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   child: Column(
                     children: [
                       CustomCard(
-                        title: 'Sports',
-                        content:
+                        category: 'Sports',
+                        title:
                             'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
                         date: '08 Apr 2024',
                         imagePath: 'assets/images/sports_car.jpg',

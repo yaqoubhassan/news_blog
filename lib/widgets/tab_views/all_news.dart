@@ -3,7 +3,7 @@ import 'package:news_blog1/screens/latest_news.dart';
 import 'package:news_blog1/widgets/custom_carousel.dart';
 
 import '../../constants.dart';
-import '../custom_card.dart';
+import '../cards/custom_card.dart';
 
 class AllNews extends StatefulWidget {
   const AllNews({super.key, this.showCarousel = true, this.isAudioArticle =
@@ -73,8 +73,8 @@ class _AllNewsState extends State<AllNews> {
               child: Column(
                 children: [
                   CustomCard(
-                    title: 'Sports',
-                    content:
+                    category: 'Sports',
+                    title:
                         'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
                     date: '08 Apr 2024',
                     imagePath: 'assets/images/sports_car.jpg',
@@ -82,8 +82,8 @@ class _AllNewsState extends State<AllNews> {
                     isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
-                    title: 'Technology',
-                    content:
+                    category: 'Technology',
+                    title:
                         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '07 Apr 2024',
                     imagePath: 'assets/images/tech1.jpg',
@@ -91,8 +91,8 @@ class _AllNewsState extends State<AllNews> {
                     isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
-                    title: 'Fashion',
-                    content:
+                    category: 'Fashion',
+                    title:
                         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '22 Jun 2023',
                     imagePath: 'assets/images/fashion.jpg',
@@ -100,8 +100,8 @@ class _AllNewsState extends State<AllNews> {
                     isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
-                    title: 'Science',
-                    content:
+                    category: 'Science',
+                    title:
                         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '12 Aug 2017',
                     imagePath: 'assets/images/science.jpg',
@@ -109,8 +109,8 @@ class _AllNewsState extends State<AllNews> {
                     isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
-                    title: 'Technology',
-                    content:
+                    category: 'Technology',
+                    title:
                         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '01 Apr 2012',
                     imagePath: 'assets/images/tech.jpg',
@@ -118,8 +118,8 @@ class _AllNewsState extends State<AllNews> {
                     isAudioArticle: widget.isAudioArticle,
                   ),
                   CustomCard(
-                    title: 'Sports',
-                    content:
+                    category: 'Sports',
+                    title:
                         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
                     date: '08 Apr 2024',
                     imagePath: 'assets/images/ronaldo.jpg',

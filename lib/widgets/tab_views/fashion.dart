@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../custom_card.dart';
+import '../cards/custom_card.dart';
 
 class FashionTabView extends StatefulWidget {
   const FashionTabView({super.key, this.isAudioArticle = false});
@@ -22,16 +22,16 @@ class _FashionTabViewState extends State<FashionTabView> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CustomCard(
-              title: 'Fashion',
-              content:
+              category: 'Fashion',
+              title:
               'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
               date: '08 Apr 2024',
               imagePath: 'assets/images/fashion.jpg', showDivider: true,
               isAudioArticle: widget.isAudioArticle,
             ),
             CustomCard(
-              title: 'Fashion',
-              content:
+              category: 'Fashion',
+              title:
               'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
               date: '08 Apr 2024',
               imagePath: 'assets/images/fashion1.jpg', showDivider: false,
