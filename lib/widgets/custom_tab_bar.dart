@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_blog1/constants.dart';
+import 'package:news_blog1/utilities/constants.dart';
 
 class CustomTabBar extends StatefulWidget implements PreferredSizeWidget{
   const CustomTabBar({super.key, required this.color});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget{
   const CustomAppBar({super.key, required this.titleText});

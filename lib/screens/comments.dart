@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_blog1/constants.dart';
+import 'package:news_blog1/utilities/constants.dart';
 import 'package:news_blog1/widgets/footer.dart';
 
 import '../widgets/cards/custom_card.dart';

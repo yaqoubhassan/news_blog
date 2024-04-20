@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog1/widgets/cards/custom_card.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 class BookMarked extends StatefulWidget {
   static const String id = 'bookmarked';

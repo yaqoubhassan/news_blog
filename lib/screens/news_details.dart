@@ -4,7 +4,7 @@ import 'package:news_blog1/screens/comments.dart';
 import 'package:news_blog1/widgets/footer.dart';
 import 'package:news_blog1/widgets/form_button.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 bool _checked = false;
 

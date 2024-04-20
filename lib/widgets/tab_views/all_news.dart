@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_blog1/screens/latest_news.dart';
 import 'package:news_blog1/widgets/custom_carousel.dart';
 
-import '../../constants.dart';
+import '../../utilities/constants.dart';
 import '../cards/custom_card.dart';
 
 class AllNews extends StatefulWidget {

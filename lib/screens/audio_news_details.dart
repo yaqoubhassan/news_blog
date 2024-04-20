@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog1/widgets/footer.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 
 class AudioNewsDetails extends StatefulWidget {

@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:news_blog1/screens/bookmarked.dart';
 import 'package:news_blog1/screens/create_article_screen.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 import '../screens/audio_articles.dart';
 import '../screens/home.dart';
 import 'drawer_menu_item.dart';
 
-class HomeDrawer extends StatelessWidget {
+class HomeDrawer extends StatefulWidget {
   const HomeDrawer({super.key});
 
+  @override
+  State<HomeDrawer> createState() => _HomeDrawerState();
+}
+
+class _HomeDrawerState extends State<HomeDrawer> {
   @override
   Widget build(BuildContext context) {
     return const Drawer(
@@ -79,7 +84,7 @@ class HomeDrawer extends StatelessWidget {
                       thickness: 0.5,
                     ),
                     SizedBox(height: 200,),
-                    DrawerMenuItem(menuItem: 'Logout'),
+                    DrawerMenuItem(menuItem: 'Logout', isLogout: true),
                   ],
                 )
               ],

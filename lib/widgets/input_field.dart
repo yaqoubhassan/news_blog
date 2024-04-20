@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:news_blog1/constants.dart';
+import 'package:news_blog1/utilities/constants.dart';
 
 
 class InputField extends StatefulWidget {
   const InputField({super.key, this.placeholder, this.obscure = false, this
       .textFieldNode, this.nextFieldNode, this.maxLines = 1, this
-      .textCapitalization = false});
+      .textCapitalization = false, this.validator, this.controller, this
+      .errorText, this.onChanged});
 
   final String? placeholder;
   final bool obscure;
@@ -13,6 +14,10 @@ class InputField extends StatefulWidget {
   final FocusNode? nextFieldNode;
   final int maxLines;
   final bool textCapitalization;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
+  final String? errorText;
+  final Function(String)? onChanged;
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -42,14 +47,18 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: widget.onChanged,
+      controller: widget.controller,
+      validator: widget.validator,
       textCapitalization: widget.textCapitalization ? TextCapitalization
-          .sentences :
+          .words :
       TextCapitalization.none,
       maxLines: widget.maxLines,
       focusNode: widget.textFieldNode,
       style: const TextStyle(fontSize: 18.0),
       obscureText: _isObscured,
       decoration:  InputDecoration(
+        errorText: widget.errorText,
         hintStyle: const TextStyle(color: Color(0xFFC0C0C0),),
         hintText: widget.placeholder,
         filled: true,

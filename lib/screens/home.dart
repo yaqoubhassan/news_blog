@@ -4,7 +4,7 @@ import 'package:news_blog1/widgets/tab_views/custom_tab_view.dart';
 import 'package:news_blog1/widgets/footer.dart';
 import 'package:news_blog1/widgets/home_drawer.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 class Home extends StatefulWidget {
   static const String id = 'home_screen';

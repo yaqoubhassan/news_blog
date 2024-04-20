@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../utilities/constants.dart';
 
 class DefaultNewsCard extends StatefulWidget {
   const DefaultNewsCard({super.key, required this.imagePath, required this

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_blog1/constants.dart';
+import 'package:news_blog1/utilities/constants.dart';
 import 'package:news_blog1/widgets/custom_app_bar.dart';
 import 'package:news_blog1/widgets/custom_carousel.dart';
 import 'package:news_blog1/widgets/tab_views/custom_tab_view.dart';

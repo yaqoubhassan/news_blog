@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 class PhoneNumberField extends StatefulWidget {
-  const PhoneNumberField({super.key, this.fieldFocusNode, this.nextFieldNode});
+  const PhoneNumberField({super.key, this.fieldFocusNode, this.nextFieldNode,
+  this.validator});
 
   final FocusNode? fieldFocusNode;
   final FocusNode? nextFieldNode;
+  final String? Function(PhoneNumber?)? validator;
 
   @override
   State<PhoneNumberField> createState() => _PhoneNumberFieldState();
@@ -22,6 +25,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      validator: widget.validator,
       dropdownTextStyle: const TextStyle(fontSize: 18.0),
       style: const TextStyle(fontSize: 18.0,),
       initialCountryCode: 'US',
@@ -29,7 +33,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
         // print('Country changed to: ${country.name}');
       },
       focusNode: widget.fieldFocusNode,
-      disableLengthCheck: true,
+      // disableLengthCheck: true,
       decoration: const InputDecoration(
         filled: true,
         fillColor: Color(0xFFEDEBEB),
@@ -54,9 +58,19 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
             color: Colors.red,
             width: 2.0,
           ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
+            ),
+          ),
         ),
         errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.red, width: 2.0),
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
+            ),
+          ),
         ),
         focusColor: kOrangeColor,
         hintText: 'Enter Phone Number',

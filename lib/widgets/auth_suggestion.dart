@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 class AuthSuggestion extends StatelessWidget {
   const AuthSuggestion({super.key, required this.firstText, this.secondText, this.route});

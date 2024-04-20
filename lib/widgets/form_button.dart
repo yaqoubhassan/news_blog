@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_blog1/constants.dart';
+import 'package:news_blog1/utilities/constants.dart';
 
 class FormButton extends StatelessWidget {
   const FormButton({super.key, required this.buttonText, this.onPressed});

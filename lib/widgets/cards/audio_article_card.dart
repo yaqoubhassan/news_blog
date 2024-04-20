@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../utilities/constants.dart';
 
 class AudioArticleCard extends StatefulWidget {
   const AudioArticleCard({super.key, required this.imagePath, required this

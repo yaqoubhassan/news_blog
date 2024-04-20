@@ -5,7 +5,7 @@ import 'package:news_blog1/widgets/footer.dart';
 import 'package:news_blog1/widgets/form_button.dart';
 import 'package:news_blog1/widgets/input_field.dart';
 
-import '../constants.dart';
+import '../utilities/constants.dart';
 
 class CreateArticleScreen extends StatefulWidget {
   static const String id = 'create_article_screen';

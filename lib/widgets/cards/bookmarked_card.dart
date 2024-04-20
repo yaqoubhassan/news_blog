@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../utilities/constants.dart';
 
 class BookmarkedCard extends StatefulWidget {
   const BookmarkedCard({super.key, required this.imagePath, required this
