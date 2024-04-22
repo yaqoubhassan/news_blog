@@ -58,9 +58,9 @@ class _CreateArticleScreenState extends State<CreateArticleScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
-                  onTap: () async{
-                    FilePickerResult? result = await FilePicker.platform
-                        .pickFiles(
+                  onTap: () async {
+                    FilePickerResult? result =
+                        await FilePicker.platform.pickFiles(
                       type: FileType.custom,
                       allowedExtensions: ['jpg', 'png', 'jpeg'],
                     );
@@ -92,13 +92,16 @@ class _CreateArticleScreenState extends State<CreateArticleScreen> {
                                 SizedBox(
                                   width: 5.0,
                                 ),
-                                Text('Add Article Cover',
+                                Text(
+                                  'Add Article Cover',
                                   style: TextStyle(fontSize: 16.0),
                                 ),
                               ],
                             ),
                           ),
-                          Expanded(child: Center(child: Text(uploadedCoverImage ?? '')))
+                          Expanded(
+                              child:
+                                  Center(child: Text(uploadedCoverImage ?? '')))
                         ],
                       ),
                     ),
@@ -175,59 +178,76 @@ class _CreateArticleScreenState extends State<CreateArticleScreen> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                Transform.scale(
-                  alignment: Alignment.bottomLeft,
-                  scaleX: 1.2,
-                  scaleY: 1.0,
-                  child: Switch.adaptive(
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    value: showUploadAudioButton,
-                    activeColor: Colors.red,
-                    inactiveTrackColor: const Color(0xFFEDEBEB),
-                    onChanged: (bool value) {
-                      setState(() {
-                        showUploadAudioButton = value;
-                      });
-                    },
-                  ),
+                Row(
+                  children: [
+                    Transform.scale(
+                      alignment: Alignment.bottomLeft,
+                      scaleX: 1.2,
+                      scaleY: 1.0,
+                      child: Switch.adaptive(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        value: showUploadAudioButton,
+                        activeColor: kOrangeColor,
+                        inactiveTrackColor: const Color(0xFFEDEBEB),
+                        onChanged: (bool value) {
+                          setState(() {
+                            showUploadAudioButton = value;
+                          });
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 15.0,
+                    ),
+                    const Text('Audio Article')
+                  ],
                 ),
                 const SizedBox(
                   height: 15.0,
                 ),
-                showUploadAudioButton ? Row(
-                  children: [
-                    ElevatedButton(
-                      style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(Color(0xFFEDEBEB)),
-                      ),
-                      onPressed: () async {
-                        FilePickerResult? result = await FilePicker.platform
-                            .pickFiles(
-                          type: FileType.custom,
-                          allowedExtensions: ['jpg', 'pdf', 'doc'],
-                        );
+                Visibility(
+                  visible: showUploadAudioButton,
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                        style: const ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll(Color(0xFFEDEBEB)),
+                        ),
+                        onPressed: () async {
+                          FilePickerResult? result =
+                              await FilePicker.platform.pickFiles(
+                            type: FileType.custom,
+                            allowedExtensions: ['jpg', 'pdf', 'doc'],
+                          );
 
-                        if (result != null) {
-                          setState(() {
-                            uploadedAudioName = result.files.single.name;
-                          });
-                        }
-                      },
-                      child: const Text(
-                        'Upload Audio',
-                        style: TextStyle(color: Colors.black54,
-                        fontSize: 16.0),
+                          if (result != null) {
+                            setState(() {
+                              uploadedAudioName = result.files.single.name;
+                            });
+                          }
+                        },
+                        child: const Text(
+                          'Upload Audio',
+                          style:
+                              TextStyle(color: Colors.black54, fontSize: 16.0),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 10.0,),
-                    Expanded(
-                      child: Text(uploadedAudioName ?? 'No file chosen', style:
-                      const TextStyle(fontSize:
-                      14.0),),
-                    ),
-                  ],
-                ) : const SizedBox(),
-                const SizedBox(height: 40.0,),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          uploadedAudioName ?? 'No file chosen',
+                          style: const TextStyle(fontSize: 14.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 40.0,
+                ),
                 const FormButton(buttonText: 'Publish')
               ],
             ),

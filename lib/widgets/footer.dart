@@ -6,15 +6,17 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentYear = DateTime.now().year;
+
     return Container(
       color: const Color(0xFFEEEDED),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '© 2024 News Blog. Made by Yaqoub.',
-            style: TextStyle(color: Color(0xFF565555)),
+            '© $currentYear News Blog. Made by Yaqoub.',
+            style: const TextStyle(color: Color(0xFF565555)),
           ),
         ],
       ),

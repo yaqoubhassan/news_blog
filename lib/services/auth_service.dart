@@ -35,4 +35,38 @@ class AuthService {
       return false;
     }
   }
+
+  static Future<bool> logout() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('token');
+
+      if (token != null) {
+        final baseUrl = dotenv.env['BASE_URL'];
+        Uri url = Uri.parse('$baseUrl/auth/logout');
+        http.Response response = await http.get(
+          url,
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Accept': 'application/json',
+          },
+        );
+
+        if (response.statusCode == 200) {
+          // Logout successful, clear token and navigate to login screen
+          await prefs.remove('token');
+          // if (mounted) {
+          //   Navigator.pushReplacementNamed(context, LoginScreen.id);
+          // }
+          return true;
+        } else {
+          return false;
+        }
+      }
+    } catch (e) {
+      return false;
+    }
+    return false;
+  }
+
 }
