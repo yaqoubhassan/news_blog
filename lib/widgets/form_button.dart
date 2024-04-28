@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog1/utilities/constants.dart';
 
+
 class FormButton extends StatelessWidget {
   const FormButton({super.key, required this.buttonText, this.onPressed});
 
@@ -21,7 +22,7 @@ class FormButton extends StatelessWidget {
           ),
         ),
       ),
-      child:  Text(
+      child: Text(
         buttonText,
         style: const TextStyle(
             color: Colors.white,

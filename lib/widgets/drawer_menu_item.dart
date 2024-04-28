@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_blog1/utilities/constants.dart';
 
 class DrawerMenuItem extends StatefulWidget {
   const DrawerMenuItem({super.key, required this.menuItem, this.routeName});
@@ -21,7 +20,7 @@ class _DrawerMenuItemState extends State<DrawerMenuItem> {
         child: Row(
           children: [
             Expanded(
-              child: Container(
+              child: SizedBox(
                 // color: kOrangeColor.withOpacity(0.7),
                 width: double.infinity,
                 child: Padding(

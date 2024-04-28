@@ -6,11 +6,12 @@ import '../utilities/constants.dart';
 
 class PhoneNumberField extends StatefulWidget {
   const PhoneNumberField({super.key, this.fieldFocusNode, this.nextFieldNode,
-  this.validator});
+  this.validator, this.controller});
 
   final FocusNode? fieldFocusNode;
   final FocusNode? nextFieldNode;
   final String? Function(PhoneNumber?)? validator;
+  final TextEditingController? controller;
 
   @override
   State<PhoneNumberField> createState() => _PhoneNumberFieldState();
@@ -25,6 +26,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+      controller: widget.controller,
       validator: widget.validator,
       dropdownTextStyle: const TextStyle(fontSize: 18.0),
       style: const TextStyle(fontSize: 18.0,),

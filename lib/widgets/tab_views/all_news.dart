@@ -1,9 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:intl/intl.dart';
 import 'package:news_blog1/screens/latest_news.dart';
 import 'package:news_blog1/widgets/custom_carousel.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utilities/constants.dart';
 import '../cards/custom_card.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class AllNews extends StatefulWidget {
   const AllNews({super.key, this.showCarousel = true, this.isAudioArticle =
@@ -24,6 +30,52 @@ class _AllNewsState extends State<AllNews> {
     'assets/images/fashion.jpg',
     'assets/images/tech1.jpg'
   ];
+  bool _isLoadingArticles = false;
+
+  List<dynamic> articles = [];
+
+  void getAllArticles() async {
+    setState(() {
+      _isLoadingArticles = true;
+    });
+    try {
+      final baseUrl = dotenv.env['BASE_URL'];
+      var url = Uri.parse("$baseUrl/articles");
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('token');
+
+
+      var response = await http.get(
+        url,
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Accept': 'application/json',
+        },
+      );
+
+
+      if (response.statusCode == 200) {
+        var jsonResponse = json.decode(response.body);
+        setState(() {
+          _isLoadingArticles = false;
+          articles = jsonResponse['data'];
+        });
+
+        print("my data $articles");
+      } else {
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error fetching articles: $e');
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getAllArticles();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,65 +120,27 @@ class _AllNewsState extends State<AllNews> {
                 ],
               ),
             ),
-            Padding(
+            _isLoadingArticles ? const Padding(
+              padding: EdgeInsets.only(top: 60.0),
+              child: CircularProgressIndicator(
+                color: kOrangeColor,
+              ),
+            ) : Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
               child: Column(
-                children: [
-                  CustomCard(
-                    category: 'Sports',
-                    title:
-                        'NHL1 roundup: Mika Zibanejad\'s record night powers Rangers',
-                    date: '08 Apr 2024',
-                    imagePath: 'assets/images/sports_car.jpg',
-                    showDivider: true,
+                children: articles.map((article) {
+                  String createdAt = article['created_at'];
+                  DateTime dateTime = DateTime.parse(createdAt);
+                  String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
+                  return CustomCard(
+                    category: article['category'],
+                    title: article['title'],
+                    date: formattedDate,
+                    imagePath: article['cover_image'],
+                    showDivider: true, // You can adjust this based on your needs
                     isAudioArticle: widget.isAudioArticle,
-                  ),
-                  CustomCard(
-                    category: 'Technology',
-                    title:
-                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
-                    date: '07 Apr 2024',
-                    imagePath: 'assets/images/tech1.jpg',
-                    showDivider: true,
-                    isAudioArticle: widget.isAudioArticle,
-                  ),
-                  CustomCard(
-                    category: 'Fashion',
-                    title:
-                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
-                    date: '22 Jun 2023',
-                    imagePath: 'assets/images/fashion.jpg',
-                    showDivider: true,
-                    isAudioArticle: widget.isAudioArticle,
-                  ),
-                  CustomCard(
-                    category: 'Science',
-                    title:
-                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
-                    date: '12 Aug 2017',
-                    imagePath: 'assets/images/science.jpg',
-                    showDivider: true,
-                    isAudioArticle: widget.isAudioArticle,
-                  ),
-                  CustomCard(
-                    category: 'Technology',
-                    title:
-                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
-                    date: '01 Apr 2012',
-                    imagePath: 'assets/images/tech.jpg',
-                    showDivider: true,
-                    isAudioArticle: widget.isAudioArticle,
-                  ),
-                  CustomCard(
-                    category: 'Sports',
-                    title:
-                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt!',
-                    date: '08 Apr 2024',
-                    imagePath: 'assets/images/ronaldo.jpg',
-                    showDivider: false,
-                    isAudioArticle: widget.isAudioArticle,
-                  ),
-                ],
+                  );
+                }).toList(),
               ),
             )
           ],

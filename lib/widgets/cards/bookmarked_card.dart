@@ -32,7 +32,7 @@ class _BookmarkedCardState extends State<BookmarkedCard> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
+                child: Image.network(
                   widget.imagePath,
                   fit: BoxFit.fill,
                 ),

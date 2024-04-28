@@ -19,6 +19,7 @@ class _DefaultNewsCardState extends State<DefaultNewsCard> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: Column(
@@ -54,7 +55,7 @@ class _DefaultNewsCardState extends State<DefaultNewsCard> {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
+            child: Image.network(
               widget.imagePath,
               fit: BoxFit.fill,
             ),

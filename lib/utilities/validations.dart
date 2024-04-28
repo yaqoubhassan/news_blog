@@ -20,6 +20,13 @@ String? validatePassword(String? value) {
   return null;
 }
 
+String? validateFullName(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter your full name';
+  }
+  return null;
+}
+
 double calculateContainerHeight(int itemCount) {
   const double itemHeight = 50.0; // Assuming each item has a height of 50.0
   const double minHeight = 70.0; // Minimum height when there are no items

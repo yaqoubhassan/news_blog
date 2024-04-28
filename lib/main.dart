@@ -11,7 +11,10 @@ import 'package:news_blog1/screens/latest_news.dart';
 import 'package:news_blog1/screens/login.dart';
 import 'package:news_blog1/screens/news_details.dart';
 import 'package:news_blog1/screens/registration.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'blocs/application_bloc.dart';
 
 void main() async {
   await dotenv.load();
@@ -33,30 +36,36 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // scrollBehavior: const ScrollBehavior(),
-      debugShowCheckedModeBanner: true,
-      title: 'News Blog',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ApplicationBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        // scrollBehavior: const ScrollBehavior(),
+        debugShowCheckedModeBanner: true,
+        title: 'News Blog',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        // home: const LoginScreen(),
+        initialRoute: initialRoute,
+        routes: {
+          LoginScreen.id: (context) => const LoginScreen(),
+          RegistrationScreen.id: (context) => const RegistrationScreen(),
+          ForgotPassword.id: (context) => const ForgotPassword(),
+          Home.id: (context) => const Home(),
+          LatestNews.id: (context) => const LatestNews(),
+          NewsDetails.id: (context) => const NewsDetails(),
+          CommentsScreen.id: (context) => const CommentsScreen(),
+          AudioArticlesScreen.id: (context) => const AudioArticlesScreen(),
+          AudioNewsDetails.id: (context) => const AudioNewsDetails(),
+          CreateArticleScreen.id: (context) => const CreateArticleScreen(),
+          BookMarked.id: (context) => const BookMarked()
+        },
       ),
-      // home: const LoginScreen(),
-      initialRoute: initialRoute,
-      routes: {
-        LoginScreen.id: (context) => const LoginScreen(),
-        RegistrationScreen.id: (context) => const RegistrationScreen(),
-        ForgotPassword.id: (context) => const ForgotPassword(),
-        Home.id: (context) => const Home(),
-        LatestNews.id: (context) => const LatestNews(),
-        NewsDetails.id: (context) => const NewsDetails(),
-        CommentsScreen.id: (context) => const CommentsScreen(),
-        AudioArticlesScreen.id: (context) => const AudioArticlesScreen(),
-        AudioNewsDetails.id: (context) => const AudioNewsDetails(),
-        CreateArticleScreen.id: (context) => const CreateArticleScreen(),
-        BookMarked.id: (context) => const BookMarked()
-      },
     );
   }
 }
-

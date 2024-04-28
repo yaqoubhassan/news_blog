@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_blog1/widgets/tab_views/all_news.dart';
-import 'package:news_blog1/widgets/tab_views/fashion.dart';
-import 'package:news_blog1/widgets/tab_views/science.dart';
-import 'package:news_blog1/widgets/tab_views/sports.dart';
-import 'package:news_blog1/widgets/tab_views/technology.dart';
+import 'package:news_blog1/widgets/tab_views/tab_view_child.dart';
 
 
 class CustomTabView extends StatefulWidget {
@@ -26,10 +23,15 @@ class _CustomTabViewState extends State<CustomTabView> {
       child: TabBarView(
         children: <Widget>[
           AllNews(showCarousel: widget.showCarousel, isAudioArticle: widget.isAudioArticle,),
-          TechnologyTabView(isAudioArticle: widget.isAudioArticle),
-          FashionTabView(isAudioArticle: widget.isAudioArticle),
-          SportsTabView(isAudioArticle: widget.isAudioArticle),
-          ScienceTabView(isAudioArticle: widget.isAudioArticle)
+          TabViewChild(isAudioArticle: widget.isAudioArticle, category: 'Tech'
+              'nology'
+              '',),
+          TabViewChild(isAudioArticle: widget.isAudioArticle, category: 'Fash'
+              'ion'),
+          TabViewChild(isAudioArticle: widget.isAudioArticle, category: 'Spor'
+              'ts'),
+          TabViewChild(isAudioArticle: widget.isAudioArticle, category: 'Scie'
+              'nce'),
         ],
       ),
     );

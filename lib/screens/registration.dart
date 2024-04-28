@@ -237,7 +237,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                     const SizedBox(height: 10,),
                     InputField(
-                      controller: passwordController,
+                        controller: passwordController,
                         obscure: true,
                         placeholder: 'Enter Your Password',
                         textFieldNode: pin4FocusNode),
@@ -253,10 +253,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                     const Center(
                         child: AuthSuggestion(
-                      firstText: 'Already have an account?',
-                      secondText: ' Sign In',
-                      route: LoginScreen.id,
-                    )),
+                          firstText: 'Already have an account?',
+                          secondText: ' Sign In',
+                          route: LoginScreen.id,
+                        )),
                   ],
                 ),
               ),

@@ -30,7 +30,7 @@ class _AudioArticleCardState extends State<AudioArticleCard> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
+                child: Image.network(
                   widget.imagePath,
                   fit: BoxFit.fill,
                 ),
